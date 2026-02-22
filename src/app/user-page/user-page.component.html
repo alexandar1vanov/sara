@@ -1,0 +1,7 @@
+<div class="user-cards">
+  @for (userData of users; track userData.id) {
+    <app-user-card
+      [userData]="userData">
+    </app-user-card>
+  }
+</div>
