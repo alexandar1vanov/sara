@@ -1,0 +1,42 @@
+@if (user) {
+  <div class="user-detail-container">
+    <header class="user-header">
+      <div class="header-text">
+        <h1>{{ user.name }}</h1>
+        <p class="username"><strong>Username:</strong> {{ user.username }}</p>
+      </div>
+    </header>
+
+    <div class="details-grid">
+      <section class="detail-card">
+        <h3>Contact Info</h3>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Phone:</strong> {{ user.phone }}</p>
+        <p><strong>Website:</strong> <a [href]="'http://' + user.website" target="_blank">{{ user.website }}</a></p>
+      </section>
+
+      <section class="detail-card">
+        <h3>Company</h3>
+        <p class="company-name">{{ user.company.name }}</p>
+        <p class="italic">"{{ user.company.catchPhrase }}"</p>
+        <p><small>BS: {{ user.company.bs }}</small></p>
+      </section>
+
+      <section class="detail-card wide">
+        <h3>Address & Location</h3>
+        <div class="address-box">
+          <p>{{ user.address.suite }} {{ user.address.street }}</p>
+          <p>{{ user.address.city }}, {{ user.address.zipcode }}</p>
+          <div class="geo-tag">
+            <span>Lat: {{ user.address.geo.lat }}</span>
+            <span>Lng: {{ user.address.geo.lng }}</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="actions">
+      <button [routerLink]="['/users']" class="btn-back">← Back to List</button>
+    </footer>
+  </div>
+}

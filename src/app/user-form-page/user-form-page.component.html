@@ -1,0 +1,67 @@
+<div class="add-user-page-container">
+  <div class="add-user-card">
+    <h3>{{ isEditMode ? 'Edit User' : 'Add New User' }}</h3>
+
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" novalidate>
+
+      <div class="section-title">Identity (Required)</div>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name"
+               [ngModel]="userToEdit?.name" #name="ngModel"
+               required placeholder="John Doe"
+               [class.is-invalid]="name.invalid && name.touched" class="form-input">
+        @if (name.invalid && name.touched) { <small class="error-text">Name is required.</small> }
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email"
+               [ngModel]="userToEdit?.email" #email="ngModel"
+               required email placeholder="john@example.com"
+               [class.is-invalid]="email.invalid && email.touched" class="form-input">
+        @if (email.invalid && email.touched) { <small class="error-text">Valid email is required.</small> }
+      </div>
+
+      <hr class="divider">
+      <div class="section-title">Additional Info (Optional)</div>
+
+      <div ngModelGroup="address" class="form-row">
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" name="city" [ngModel]="userToEdit?.address?.city" placeholder="New York" class="form-input">
+        </div>
+        <div class="form-group">
+          <label>Zipcode</label>
+          <input type="text" name="zipcode" [ngModel]="userToEdit?.address?.zipcode" placeholder="10001" class="form-input">
+        </div>
+      </div>
+
+      <div ngModelGroup="company">
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" name="name" [ngModel]="userToEdit?.company?.name" placeholder="Acme Corp" class="form-input">
+        </div>
+        <div class="form-group">
+          <label>Catchphrase</label>
+          <input type="text" name="catchPhrase" [ngModel]="userToEdit?.company?.catchPhrase" placeholder="To the moon!" class="form-input">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Website</label>
+        <input type="text" name="website" [ngModel]="userToEdit?.website" placeholder="www.johndoe.com" class="form-input">
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-primary" [disabled]="userForm.invalid">
+          {{ isEditMode ? 'Update User' : 'Save User' }}
+        </button>
+
+        <button type="button" class="btn-secondary" (click)="onCancel(userForm)">
+          {{ isEditMode ? 'Cancel' : 'Clear' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

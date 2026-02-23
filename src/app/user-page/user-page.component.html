@@ -1,7 +1,30 @@
+<div class="search-container">
+  <input
+    type="text"
+    placeholder="Search for a user's name or email ..."
+    #search
+    (input)="onChange(search.value)"
+    class="search-input"
+  >
+  <div class="sort-wrapper">
+    <label for="sortSelect">Sort by:</label>
+    <select id="sortSelect" (change)="onSortChange($event)" class="sort-dropdown">
+      <option value="">Select an Option</option>
+      <option value="name-asc">Name (A-Z)</option>
+      <option value="name-desc">Name (Z-A)</option>
+    </select>
+  </div>
+  <div class="add-user">
+    <button class="add-user-button" [routerLink]="['/users/form']">Add User</button>
+  </div>
+</div>
+
 <div class="user-cards">
-  @for (userData of users; track userData.id) {
+  @for (userData of filteredUsers; track userData.id) {
     <app-user-card
-      [userData]="userData">
+      [userData]="userData"
+      (deletedRequest)="handleDelete($event)"
+    >
     </app-user-card>
   }
 </div>

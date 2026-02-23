@@ -5,8 +5,19 @@
   </div>
 
   <div class="company">
-    <p><span>Company:</span> {{ userData.company?.name }}</p>
-    <p><span>Catchphrase:</span> {{ userData.company?.catchPhrase }}</p>
-    <p><span>Business:</span> {{ userData.company?.bs }}</p>
+    <p><span>Company:</span> {{ userData.company.name }}</p>
+    <p><span>Catchphrase:</span> {{ userData.company.catchPhrase }}</p>
+    <p><span>Business:</span> {{ userData.company.bs }}</p>
+  </div>
+  <div class="actions">
+    <a [routerLink]="['/users', userData.id]" class="btn-link">Details</a>
+
+    <button [routerLink]="['/users/form', userData.id]" class="btn-edit">
+      Edit
+    </button>
+
+    <button (click)="onDelete(userData.id)" class="btn-delete">
+      Delete
+    </button>
   </div>
 </div>

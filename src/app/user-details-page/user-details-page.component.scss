@@ -1,0 +1,66 @@
+.user-detail-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.detail-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
+}
+
+.detail-card.wide {
+  grid-column: 1 / -1;
+}
+
+.detail-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.geo-tag {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed #ccc;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.btn-back {
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  background: #6c757d;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-back:hover {
+  background: #5a6268;
+}

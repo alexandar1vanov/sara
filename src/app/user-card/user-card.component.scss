@@ -34,3 +34,15 @@
   font-weight: 600;
   color: #2c3e50;
 }
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.btn-edit { background: #ffc107; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+.btn-delete { background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+.btn-link { text-decoration: none; color: #007bff; font-size: 0.9rem; margin-right: auto; }
